@@ -88,6 +88,9 @@ app.put('/api/notes/:id', (request,response) => {
     id: id,
   }
   notes = notes.map (n => note.id !== n.id ? n : note)
+  response.json(note)
+  response.status(200).json(note)
+  response.status(404).end()
 })
 
 app.delete('/api/notes/:id', (request, response) => {
