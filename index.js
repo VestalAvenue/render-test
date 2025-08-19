@@ -84,7 +84,7 @@ app.put('/api/notes/:id', (request,response) => {
   const body = request.body
   const note = {
     content: body.content,
-    important: !body.important,
+    important: body.important,
     id: id,
   }
   notes = notes.map (n => note.id !== n.id ? n : note)
