@@ -79,6 +79,17 @@ app.post('/api/notes', (request, response) => {
   response.json(note)
 })
 
+app.put('/api/notes/:id', (request,response) => {
+  const id = request.params.id
+  const body = request.body
+  const note = {
+    content: body.content,
+    important: !body.important,
+    id: id,
+  }
+  notes = notes.map (n => note.id !== n.id ? n : note)
+})
+
 app.delete('/api/notes/:id', (request, response) => {
   const id = request.params.id
   notes = notes.filter((note) => note.id !== id)
